@@ -1,8 +1,5 @@
 <?php
 /*
-Author: Eddie Machado
-URL: htp://themble.com/bones/
-
 This is where you can drop your custom functions or
 just edit things like thumbnail sizes, header images,
 sidebars, comments, ect.
@@ -11,8 +8,22 @@ sidebars, comments, ect.
 // LOAD BONES CORE (if you remove this, the theme will break)
 require_once( 'library/bones.php' );
 
-// USE THIS TEMPLATE TO CREATE CUSTOM POST TYPES EASILY
-// require_once( 'library/custom-post-type.php' );
+// CUSTOM POST TYPES
+//require_once( 'library/cpt-jedinice.php' );
+
+// CUSTOM TAXONOMIES
+//require_once( 'library/ct-jedinice-tip.php' );
+
+// ACF OPTIONS PAGE
+/*if( function_exists('acf_add_options_page') ) {
+  acf_add_options_page(array(
+    'page_title'  => __( 'Opće postavke', 'bonestheme' ),
+    'menu_title'  => __( 'Opće postavke', 'bonestheme' ),
+    'menu_slug'   => 'opce-postavke',
+    'capability'  => 'edit_posts',
+    'redirect'    => false
+  ));
+};*/
 
 // CUSTOMIZE THE WORDPRESS ADMIN (off by default)
 require_once( 'library/admin.php' );
@@ -70,8 +81,9 @@ if ( ! isset( $content_width ) ) {
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'bones-thumb-600', 600, 150, true );
-add_image_size( 'bones-thumb-300', 300, 100, true );
+//add_image_size( 'portrait', 150, 193, true );
+//add_image_size( 'four-by-three', 203, 152, true );
+//add_image_size( 'square', 258, 258, true );
 /*
 to add more sizes, simply copy a line from above
 and change the dimensions & name. As long as you
@@ -146,6 +158,26 @@ function bones_fonts() {
 
 add_action('wp_print_styles', 'bones_fonts');
 
+//  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+//  Remove hyperlinks from menu items leading nowhere
+//  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 
+/*
+function my_nav_nolinks($menu) {
+  return $menu = preg_replace( '#<a href="\#">(.*)</a>#', '<span class="menu-section">$1</span>', $menu );
+}
+
+add_filter( 'wp_nav_menu', 'my_nav_nolinks' );
+*/
+
+//  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+//  Array dump in <pre>
+//  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+
+function print_r_pre($array_name) {
+  echo '<pre>';
+  print_r($array_name);
+  echo '</pre>';
+}
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

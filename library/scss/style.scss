@@ -36,47 +36,47 @@ Stylesheet: Main Stylesheet
 //  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 
 @mixin breakpoint($point) {
-	// Landscape phones and down
-	@if $point == small {
-		@media only screen and (min-width: 481px) { @content; } 
-	}
-	// Landscape phone to portrait tablet
-	@else if $point == medium {
-		@media only screen and (min-width: 768px) { @content; } 
-	}
-	// Portrait tablet to landscape and desktop
-	@else if $point == large {
-		@media only screen and (min-width: 1030px) { @content; } 
-	}
-	// Large desktop
-	@else if $point == extralarge {
-		@media only screen and (min-width: 1240px) { @content; } 
-	}
-	// iPhone
-	@else if $point == iphone {
-		@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) { @content; } 
-	}
-	// Retina
-	@else if $point == retina {
-		@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-			   only screen and (min--moz-device-pixel-ratio: 1.5),
-			   only screen and (min-device-pixel-ratio: 1.5) {
-			// import styles in 2x.scss
-			// @import "2x";
-			@content; } 
-	}
-	// Print
-	@else if $point == print {
-		@media print { @content; } 
-	}
+  // Landscape phones and down
+  @if $point == small {
+    @media only screen and (min-width: 481px) { @content; } 
+  }
+  // Landscape phone to portrait tablet
+  @else if $point == medium {
+    @media only screen and (min-width: 768px) { @content; } 
+  }
+  // Portrait tablet to landscape and desktop
+  @else if $point == large {
+    @media only screen and (min-width: 1030px) { @content; } 
+  }
+  // Large desktop
+  @else if $point == extralarge {
+    @media only screen and (min-width: 1240px) { @content; } 
+  }
+  // iPhone
+  @else if $point == iphone {
+    @media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) { @content; } 
+  }
+  // Retina
+  @else if $point == retina {
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+         only screen and (min--moz-device-pixel-ratio: 1.5),
+         only screen and (min-device-pixel-ratio: 1.5) {
+      // import styles in 2x.scss
+      // @import "2x";
+      @content; } 
+  }
+  // Print
+  @else if $point == print {
+    @media print { @content; } 
+  }
 }
 
 /* breakpoint example
 .module {
-	width: 25%;
-	@include breakpoint(small) {
-		width: 100%;
-	}
+  width: 25%;
+  @include breakpoint(small) {
+    width: 100%;
+  }
 } 
 */
 
